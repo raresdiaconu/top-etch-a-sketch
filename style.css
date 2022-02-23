@@ -1,0 +1,42 @@
+/* FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+
+/* CSS RESET */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+.game-title {
+
+}
+
+.game {
+
+}
+
+.controls {
+
+}
+
+#canvas {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.pixel {
+    border: 1px solid black;
+}
+
+.pixel-hover {
+    background-color: red;
+}
