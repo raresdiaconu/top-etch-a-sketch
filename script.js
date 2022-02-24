@@ -1,7 +1,7 @@
 const sketchPad = document.getElementById("canvas");
 
 let pixelsPerSide = 20;
-let canvasSize = 700;
+const canvasSize = 700;
 
 document.addEventListener("DOMContentLoaded", sketchResolution(pixelsPerSide));
 
@@ -13,28 +13,76 @@ function sketchResolution(pixelsPerSide) {
         pixel.style.width = (canvasSize / pixelsPerSide) + "px";
         sketchPad.appendChild(pixel);
     }
-    hover()
+    activateHover();
 }
 
-function hover() {
-    const pixels = document.querySelectorAll(".pixel");
-    pixels.forEach(pixel => pixel.addEventListener("mouseover", colorPixels));
-    function colorPixels(/*ADD HEX VALUE HERE*/) {
-        this.classList.add('pixel-hover');
-    }
-}
-
-let slider = document.querySelector(".slider-resolution");
-let sliderText = document.querySelector(".display-slider-resolution");
-sliderText.textContent = slider.value;
+const slider = document.querySelector(".slider-resolution");
+const sliderText = document.querySelector(".display-slider-resolution");
+sliderText.textContent = "Your board is " + slider.value + " pixels wide.";
 
 slider.addEventListener("input", setPixelsPerSide);
 function setPixelsPerSide() {
-    sliderText.textContent = slider.value;
+    sliderText.textContent = "Your board is " + slider.value + " pixels wide.";
     pixelsPerSide = slider.value;
-    const allPixels = document.querySelectorAll(".pixel");
-    for (let i = 0; i < allPixels.length; i++) {
-        allPixels[i].remove();
+    const pixels = document.querySelectorAll(".pixel");
+    for (let i = 0; i < pixels.length; i++) {
+        pixels[i].remove();
     }
     sketchResolution(slider.value);   
 }
+
+const clearBtn = document.querySelector(".clear");
+clearBtn.addEventListener("click", clearBoard);
+function clearBoard() {
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => pixel.style.backgroundColor = '#fff');
+}
+
+
+const colorPicker = document.querySelector(".color-picker");
+let currentColor = colorPicker.value;
+colorPicker.addEventListener("input", updateColor);
+function updateColor(e) {
+    currentColor = e.target.value;
+}
+
+
+function activateHover() {
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => pixel.addEventListener("mousedown", colorPixels));
+    function colorPixels() {
+        pixels.forEach(pixel => pixel.addEventListener("mousemove", colorPixels));
+        let i = Math.floor(Math.random() * rainbowColors.length);
+        this.style.backgroundColor = rainbowColors[i];
+        // this.style.backgroundColor = currentColor;
+        pixels.forEach(pixel => pixel.addEventListener("mouseup", removeListener));
+        function removeListener() {
+            pixels.forEach(pixel => pixel.removeEventListener("mousemove", colorPixels));
+        }
+    }
+}
+
+// const unicornBtn = document.querySelector(".unicorn");
+// const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
+// unicornBtn.addEventListener("click", activateUnicorn)
+
+
+const eraseBtn = document.querySelector(".eraser");
+
+eraseBtn.addEventListener("click", activateEraser);
+function activateEraser() {
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => pixel.addEventListener("mousedown", clearPixel));
+    function clearPixel() {
+        pixels.forEach(pixel => pixel.addEventListener("mousemove", clearPixel));
+        this.style.backgroundColor = '#fff';
+        pixels.forEach(pixel => pixel.addEventListener("mouseup", removeListener));
+        function removeListener() {
+            pixels.forEach(pixel => pixel.removeEventListener("mousemove", clearPixel))
+        }
+    }
+}
+
+const pencilBtn = document.querySelector(".pencil");
+pencilBtn.addEventListener("click", activateHover);
+
