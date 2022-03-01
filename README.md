@@ -3,7 +3,7 @@
 Live x https://raresdiaconu.github.io/top-etch-a-sketch/.
 
 My etch-a-sketch build, part of The Odin Project curriculum (https://theodinproject.com/).
-This is my 2nd project in which I'll be using Javascript!:)
+This is the 2nd project in which I'll be using Javascript!:)
 
 The user will have the possibility to select a number of squares/side and then they will be generated through JS. I will also want to give the user the ability to change the color or just have the colors randomly change from square to square.
 
