@@ -1,6 +1,6 @@
-# top-etch-a-sketch
+# TOP Etch-A-Sketch
 
-Live x https://raresdiaconu.github.io/top-etch-a-sketch/.
+Live x https://raresdiaconu.github.io/top-etch-a-sketch/
 
 My etch-a-sketch build, part of The Odin Project curriculum (https://theodinproject.com/).
 This is the 2nd project in which I'll be using Javascript!:)
