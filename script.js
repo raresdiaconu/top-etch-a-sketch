@@ -1,6 +1,6 @@
 let pixelsPerSide = 20;
 const canvas = document.getElementById("canvas");
-const canvasSize = getComputedStyle(canvas).width.substring(0, 3);
+const canvasSize = 550;
 const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
 
 
