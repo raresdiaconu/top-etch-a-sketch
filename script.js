@@ -1,13 +1,29 @@
-let pixelsPerSide = 20;
 const canvas = document.getElementById("canvas");
+const slider = document.querySelector(".slider-resolution");
+const clearBtn = document.querySelector("#clear");
+const colorPicker = document.querySelector(".color-picker");
+const pencilBtn = document.querySelector("#pencil");
+const randomBtn = document.querySelector("#rainbow");
+const eraserBtn = document.querySelector("#eraser");
+const lighterBtn = document.querySelector("#brush");
+
+slider.addEventListener("input", setPixelsPerSide);
+clearBtn.addEventListener("click", clearBoard);
+randomBtn.addEventListener("click", color);
+pencilBtn.addEventListener("click", picker);
+pencilBtn.addEventListener("click", color);
+eraserBtn.addEventListener("click", color);
+lighterBtn.addEventListener("click", color);
+
 const canvasSize = 550;
+let pixelsPerSide = 20;
 const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
 let currentValue = "";
+let currentColor = colorPicker.value;
 
+document.addEventListener("DOMContentLoaded", canvasResolution(pixelsPerSide));
 
-document.addEventListener("DOMContentLoaded", sketchResolution(pixelsPerSide));
-
-function sketchResolution(pixelsPerSide) {
+function canvasResolution(pixelsPerSide) {
     for(let i = 1; i <= pixelsPerSide ** 2; i++) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
@@ -19,20 +35,15 @@ function sketchResolution(pixelsPerSide) {
     }
 }
 
-const slider = document.querySelector(".slider-resolution");
-
-slider.addEventListener("input", setPixelsPerSide);
 function setPixelsPerSide() {
     pixelsPerSide = slider.value;
     const pixels = document.querySelectorAll(".pixel");
     for (let i = 0; i < pixels.length; i++) {
         pixels[i].remove();
     }
-    sketchResolution(slider.value);   
+    canvasResolution(slider.value);   
 }
 
-const clearBtn = document.querySelector("#clear");
-clearBtn.addEventListener("click", clearBoard);
 function clearBoard() {
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach(pixel => {
@@ -43,31 +54,22 @@ function clearBoard() {
     });
 }
 
-const colorPicker = document.querySelector(".color-picker");
-let currentColor = colorPicker.value;
-colorPicker.addEventListener("input", (e) => currentColor = e.target.value);
-
-
-const pencilBtn = document.querySelector("#pencil");
-const randomBtn = document.querySelector("#rainbow");
-const eraserBtn = document.querySelector("#eraser");
-const lighterBtn = document.querySelector("#brush");
-
-randomBtn.addEventListener("click", color);
-pencilBtn.addEventListener("click", picker);
-pencilBtn.addEventListener("click", color);
-eraserBtn.addEventListener("click", color);
-lighterBtn.addEventListener("click", color);
+colorPicker.addEventListener("input", (e) => {
+    currentColor = e.target.value
+    if (currentValue === "brush") {
+        currentValue = "brush";
+    } else {
+        currentValue = "pencil";
+    }
+});
 
 function picker(e) {
     currentColor = colorPicker.value;
 }
 
-
 function color(e) {
     currentValue = e.target.id;
 }
-
 
 function colorPixels(e) { 
     const pixels = document.querySelectorAll(".pixel");

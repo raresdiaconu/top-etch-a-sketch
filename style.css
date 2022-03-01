@@ -59,10 +59,10 @@ main {
 
 .canvas-wrapper {
     flex-shrink: 0;
-    background-color: var(--light-color-darker);
+    background-color: var(--light-color);
     border-radius: 2rem;
     overflow: hidden;
-    border: 8px solid var(--light-color-darker);
+    border: 8px solid var(--light-color);
     filter: drop-shadow(5px 5px 0 var(--shadow-transparent));
 }
 
@@ -77,8 +77,8 @@ main {
 }
 
 .pixel {
-    border-bottom: 1px solid var(--light-color-darker);
-    border-right: 1px solid var(--light-color-darker);
+    border-bottom: 1px solid var(--light-color);
+    border-right: 1px solid var(--light-color);
 }
 
 /* CONTROLS SECTION */
@@ -225,4 +225,3 @@ footer {
 footer * p {
     color: var(--shadow-transparent);
 }
-
