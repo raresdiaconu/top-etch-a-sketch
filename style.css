@@ -13,7 +13,7 @@
 :root {
     --light-color: #eee9c8;
     --dark-color: #e41a1a;
-    --shadow-opaque: rgba(0,0,0,0.75);
+    --shadow-opaque: rgba(0,0,0,0.85);
     --shadow-transparent: rgba(0,0,0,0.25);
 }
 
@@ -98,6 +98,13 @@ main {
     border: 8px solid var(--light-color);
     border-radius: 50%;
     filter: drop-shadow(5px 5px 0 var(--shadow-transparent));
+    transition: 0.3s;
+}
+
+.circle:hover,
+.circle:focus {
+    border-color: white;
+    transform: scale(1.01);
 }
 
 .color-picker {
@@ -143,7 +150,7 @@ main {
 }
 
 .icon:hover,
-.icon:focus {
+.icon:focus-visible {
     background-color: white;
     transform: scale(1.05);
 }
