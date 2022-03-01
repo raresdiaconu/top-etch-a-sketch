@@ -7,25 +7,43 @@
     <title>Etch-A-Sketch</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bb08ff041c.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="game-title">Etch-A-Sketch</h1>
-    <div class="game">
+    <main>
+        <h1 class="game-title">Etch-A-Sketch</h1>
+        <div class="canvas-wrapper">
+            <div id="canvas"></div>
+        </div>
         <div class="controls">
-            <div class="slidercontainer">
-                <p class="display-slider-resolution"></p>
-                <input type="range" min="10" max="50" value="20" class="slider-resolution" step="2">
+            <div class="circle circle-right">
                 <input type="color" class="color-picker" value="#000000">
             </div>
-            <button class="pencil">Pencil</button>
-            <button class="eraser">Eraser</button>
-            <button class="clear">Clear</button>
-            <button class="rainbow">Rainbow</button>
-            <button class="lighter">Lighter</button>
-
-            
+            <div class="controls-middle">
+                <i id="pencil" class="fa-solid fa-pencil icon"></i>
+                <i id="brush" class="fa-solid fa-paintbrush icon"></i>
+                <i id="eraser" class="fa-solid fa-eraser icon"></i>
+                <i id="clear" class="fa-solid fa-file icon"></i>
+                <div class="slidercontainer">
+                    <input type="range" min="10" max="50" value="20" class="slider-resolution" step="2">
+                </div>
+            </div>
+            <div class="circle circle-left">
+                <button id="rainbow"></button>
+            </div>
         </div>
-        <div id="canvas"></div>
-    </div>
+    </main>
+    <!-- <footer>
+        <a class="footer-copyright" href="https://github.com/raresdiaconu" target="_blank">
+            <img class="footer-logo" src="images/GitHub-Mark-32px.png" alt="portfolio link">
+            <p>Rareș Diaconu 2022. Desktop-only version.</p> 
+        </a>
+    </footer> -->
+
+
+
 </body>
 </html>
