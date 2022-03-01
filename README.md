@@ -16,6 +16,8 @@ I ended up giving the user the possibility to choose:
 
 I also set up a range slider to adjust the canvas resolution.
 
+I deliberately chose to change the mechanics of the Etch A Sketch to more of a drawing board. In the traditional Etch A Sketch fashion, each pixel would have had to change color on mouse hover. In my version the user has to click and drag to change the color of the pixels. I thought that this way the game would be more enjoyable and would give the user more possibilities. That being said, I am aware of the fact that the beauty of the Etch A Sketch also lays in its limitations.
+
 My biggest challenge was letting the EventListener which listened for mousedown + mouseover know which of the color modes (listed above) was on. After some experimenting I managed to set it up!
 
 🔶
