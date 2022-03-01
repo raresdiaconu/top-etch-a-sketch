@@ -11,7 +11,8 @@
 /* COLORS */
 
 :root {
-    --light-color: #eee9c8;
+    --light-color: rgba(255,232,210,1);
+    --light-color-darker: rgba(255,214,176,1);
     --dark-color: #e41a1a;
     --shadow-opaque: rgba(0,0,0,0.85);
     --shadow-transparent: rgba(0,0,0,0.25);
@@ -25,7 +26,7 @@ html {
 
 body {
     background: var(--light-color);
-    background: radial-gradient(circle, rgba(238,233,200,1) 70%, rgba(231,218,200,1) 100%);
+    background: radial-gradient(circle, rgba(255,232,210,1) 70%, rgba(255,214,176,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,10 +59,10 @@ main {
 
 .canvas-wrapper {
     flex-shrink: 0;
-    background-color: var(--light-color);
+    background-color: var(--light-color-darker);
     border-radius: 2rem;
     overflow: hidden;
-    border: 8px solid var(--light-color);
+    border: 8px solid var(--light-color-darker);
     filter: drop-shadow(5px 5px 0 var(--shadow-transparent));
 }
 
@@ -76,8 +77,8 @@ main {
 }
 
 .pixel {
-    border-bottom: 1px solid var(--light-color);
-    border-right: 1px solid var(--light-color);
+    border-bottom: 1px solid var(--light-color-darker);
+    border-right: 1px solid var(--light-color-darker);
 }
 
 /* CONTROLS SECTION */
