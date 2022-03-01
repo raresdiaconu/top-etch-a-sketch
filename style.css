@@ -72,7 +72,7 @@ main {
     flex-wrap: wrap;
     flex-shrink: 0;
     background-color: white;
-    cursor: url(images/cursor.png), auto;
+    cursor: url(Images/cursor.png), auto;
 }
 
 .pixel {
@@ -117,7 +117,7 @@ main {
 }
 
 .circle-right {
-    background-image: url(images/rainbowBtn.svg);
+    background-image: url(Images/rainbowBtn.svg);
     background-size: 150px 150px;
     background-repeat: no-repeat;
     background-position: center;
