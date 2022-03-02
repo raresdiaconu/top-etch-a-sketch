@@ -24,4 +24,4 @@ My biggest challenge was letting the EventListener which listened for mousedown 
 
 Upgrades to-do:
 - save image feat
-- make responsive
+- make responsive [✅]
