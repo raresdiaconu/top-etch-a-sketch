@@ -5,7 +5,7 @@ const colorPicker = document.querySelector(".color-picker");
 const pencilBtn = document.querySelector("#pencil");
 const randomBtn = document.querySelector("#rainbow");
 const eraserBtn = document.querySelector("#eraser");
-const lighterBtn = document.querySelector("#brush");
+const brushBtn = document.querySelector("#brush");
 
 slider.addEventListener("input", setPixelsPerSide);
 clearBtn.addEventListener("click", clearBoard);
@@ -13,7 +13,7 @@ randomBtn.addEventListener("click", color);
 pencilBtn.addEventListener("click", picker);
 pencilBtn.addEventListener("click", color);
 eraserBtn.addEventListener("click", color);
-lighterBtn.addEventListener("click", color);
+brushBtn.addEventListener("click", color);
 
 const canvasSize = 550;
 let pixelsPerSide = 20;
@@ -27,8 +27,7 @@ function canvasResolution(pixelsPerSide) {
     for(let i = 1; i <= pixelsPerSide ** 2; i++) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
-        pixel.style.height = (canvasSize / pixelsPerSide) + "px";
-        pixel.style.width = (canvasSize / pixelsPerSide) + "px";
+        canvas.style.gridTemplateColumns = "repeat(" + pixelsPerSide + ", 1fr)"
         pixel.addEventListener("mousedown", colorPixels);
         pixel.addEventListener("mouseup", removeListener);
         canvas.appendChild(pixel);
@@ -68,7 +67,7 @@ function picker(e) {
 }
 
 function color(e) {
-    currentValue = e.target.id;
+    currentValue = e.currentTarget.id;
 }
 
 function colorPixels(e) { 
