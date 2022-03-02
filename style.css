@@ -27,10 +27,11 @@ html {
 body {
     background: var(--light-color);
     background: radial-gradient(circle, rgba(255,232,210,1) 70%, rgba(255,214,176,1) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    justify-items: center;
+    align-items: center;
 }
 
 main {
@@ -204,11 +205,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* FOOTER */
-
-footer {
-    position: absolute;
-    bottom: 5px;
-}
 
 .footer-copyright {
     display: flex;
