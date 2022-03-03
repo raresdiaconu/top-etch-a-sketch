@@ -162,6 +162,10 @@ main {
 
 /* RANGE SLIDER */
 
+.slider-resolution {
+    direction: rtl;
+}
+
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
